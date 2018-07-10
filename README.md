@@ -8,7 +8,7 @@ Inspired by (and heavily based on): https://codeburst.io/jwt-authorization-in-fl
 
 Comes with Dockerfile and docker-compose.yml files for testing.
 
-Disclaimer: This code is not meant for full production use. It is more an introduction to some core concepts.
+**Disclaimer: This code is not meant for full production use. It is more an introduction to some core concepts.**
 
 ## Dependencies
 
@@ -41,5 +41,19 @@ This project is relatively barebones and still has a lot that can be improved.
 - Allow for different configurations via files and environment variables
 - Use a database server like Postgresql
 - Better support for blacklisting JWT tokens (e.g. using Redis or periodically cleaning the blacklist table)
+- CI with Travis/CircleCI
+
+## Decisions
+
+This project uses JSON Web Tokens (JWT) for authentication. This is done to enable authentication without sending the username and password with each request (as with HTTP Basic Auth), and is becoming a more popular choice for APIs.
+The secret keys used here are not secure by any means, and should not be used in a production environment.
+
+SQLite is used as a backend in order to avoid bogging this project down in database setup. Ensuring that Postgres is up before the application takes some tinkering with Docker-compose, and this is not in the scope of this project.
+
+Flask-RESTful makes it a lot easier to just set up functions that handle different HTTP verbs.
+
+SQLAlchemy gives a nice ORM to use, and is pretty standard in Flask applications.
+
+Passlib is used since it was in the examples on how to set up a Flask application with JWT. Flask-BCrypt might be a better replacement (see Future Improvements section above).
 
 
