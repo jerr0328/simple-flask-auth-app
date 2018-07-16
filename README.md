@@ -16,14 +16,14 @@ This project depends on Python 3. Specifically, this was developed against Pytho
 
 [Pipenv](https://docs.pipenv.org/) is used for dependency management, see the `Pipfile`.
 
-Docker is used for the development environment.
+Docker is used for the development environment, although it also works in Pipenv (see below).
 
 ## Dev environment
 
 You can set up the dev environment with:
 - Docker: Run `build.sh` then `run.sh` to start the development server.
 - docker-compose: Run `docker-compose up` to bring up the server.
-- Use `pipenv install` to install the dependencies and then run the Flask server with
+- Use `pipenv install --dev` to install the dependencies and then run the Flask server with
 `FLASK_APP=main flask run`. You can also set the development mode with the `FLASK_DEBUG=1` or `FLASK_ENV=development`
 environment variables.
 
@@ -56,4 +56,5 @@ SQLAlchemy gives a nice ORM to use, and is pretty standard in Flask applications
 
 Passlib is used since it was in the examples on how to set up a Flask application with JWT. Flask-BCrypt might be a better replacement (see Future Improvements section above).
 
+Initial tests written cover ~70% of total code and most of the core code. It does not check the testing tools like the users endpoint nor the logout feature.
 

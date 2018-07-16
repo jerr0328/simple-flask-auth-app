@@ -6,17 +6,22 @@ import resources
 import models
 
 
-def create_app():
-    # TODO: Load configuration from file
-    app = Flask(__name__)
-    api = Api(app)
+def create_app(script_info, test_config=None):
+    # Flask's loader checks for script_info in the arguments and does some magic
+    # Since we're not using it, just delete it to make linters happy
+    del script_info
 
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    app.config['SECRET_KEY'] = 'some-secret-string'  # TODO: Change this!
-    app.config['JWT_SECRET_KEY'] = 'jwt-secret-string'  # TODO: Change this!
-    app.config['JWT_BLACKLIST_ENABLED'] = True
-    app.config['JWT_BLACKLIST_TOKEN_CHECKS'] = ['access', 'refresh']
+    app = Flask(__name__)
+
+    # Load defaults
+    app.config.from_pyfile('config/default.py')
+
+    if not test_config:
+        app.config.from_envvar('SFAA_SETTINGS')
+    else:
+        app.config.from_object(test_config)
+
+    api = Api(app)
 
     models.db.init_app(app)
     jwt = JWTManager(app)
