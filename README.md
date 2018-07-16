@@ -1,5 +1,7 @@
 # Simple Flask Auth App
 
+[![Build Status](https://travis-ci.org/jerr0328/simple-flask-auth-app.svg?branch=master)](https://travis-ci.org/jerr0328/simple-flask-auth-app)
+
 Just a simple Flask app to demo coding abilities.
 
 Inspired by (and heavily based on): https://codeburst.io/jwt-authorization-in-flask-c63c1acf4eeb
@@ -12,7 +14,7 @@ Comes with Dockerfile and docker-compose.yml files for testing.
 
 ## Dependencies
 
-This project depends on Python 3. Specifically, this was developed against Python 3.7.
+This project depends on Python 3. Specifically, this was developed against Python 3.6.
 
 [Pipenv](https://docs.pipenv.org/) is used for dependency management, see the `Pipfile`.
 
