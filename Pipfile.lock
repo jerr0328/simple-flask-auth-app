@@ -40,10 +40,10 @@
         },
         "flask-jwt-extended": {
             "hashes": [
-                "sha256:d671b24981a1d09d8f21c7b2681ce7b4bde33e2dfcb98be50ae412fc5908ec79"
+                "sha256:e325b7e31a06c10bb78412353a1c2d11a0b5170fb6a4d3790515b232a4370a45"
             ],
             "index": "pypi",
-            "version": "==3.21.0"
+            "version": "==3.22.0"
         },
         "flask-restful": {
             "hashes": [
